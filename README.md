@@ -1,59 +1,71 @@
-# 赛车游戏 - README
+# 🏎️ Pixel Racer
 
-## 项目简介
-一个像素风格的2D赛车游戏，模拟真实物理力学，支持漂移、粒子效果和动态摄像机。
+A pixel-art racing game with realistic physics built using PyGame and Pymunk.
 
-## 核心特性
-- **物理模拟**：Pymunk刚体物理引擎，包含引擎动力、刹车、空气阻力、侧向抓地力
-- **漂移系统**：空格键激活低抓地力模式，实现逼真甩尾效果
-- **粒子特效**：漂移时产生轮胎烟雾，高速时出现速度线
-- **动态摄像机**：平滑跟随赛车，随速度偏移视角
-- **椭圆赛道**：闭合环形赛道，带有边界线和终点标志
+![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## 操作指南
-- **↑ / W**：加速
-- **↓ / S**：刹车 / 倒车
-- **← → / A D**：左右转向
-- **空格**：手刹漂移
-- **ESC**：退出游戏
+## Controls
 
-## 项目结构
-```
-racing_game/
-├── main.py          # 游戏主循环
-├── game.py          # 游戏基类
-├── config.py        # 游戏配置
-├── input_handler.py # 输入处理
-├── physics.py       # 物理引擎（Pymunk）
-├── renderer.py      # 赛车渲染
-├── track.py         # 赛道绘制
-├── camera.py        # 摄像机系统
-├── particles.py     # 粒子系统
-└── venv/            # Python虚拟环境
-```
+| Key | Action |
+|-----|--------|
+| ↑ / W | Accelerate |
+| ↓ / S | Brake / Reverse |
+| ← / A | Turn Left |
+| → / D | Turn Right |
+| Space | Drift (Handbrake) |
+| ESC | Quit |
 
-## 运行方法
-```bash
-cd ~/.Hermes/workspace/racing_game
-source venv/bin/activate
+## Features
+
+- 🏁 **Realistic physics** — Pymunk physics engine with grip, drag, and drift mechanics
+- 🎮 **Drift system** — Space key activates handbrake drift with smoke particles
+- 🌍 **Elliptical track** — Race around an oval circuit with boundary collision
+- 📊 **Speed HUD** — Real-time speedometer and mini-map
+- 🎨 **Pixel art style** — Retro pixel car sprites and 2D rendering
+
+## Installation (Windows)
+
+1. Download the latest `pixel_racer_windows.zip` from [Releases](https://github.com/striferxu/pixel-racer/releases)
+2. Extract the ZIP file
+3. Run `pixel_racer.exe`
+
+## Installation (Build from source)
+
+### Windows
+```batch
+pip install pygame pymunk
 python main.py
 ```
 
-## 物理参数调校
-可在`config.py`中修改：
-- `CAR_MASS`：车重（kg）
-- `ENGINE_FORCE`：引擎动力（N）
-- `GRIP_NORMAL`：正常抓地力系数
-- `GRIP_DRIFT`：漂移抓地力系数
-- `AIR_DRAG`：空气阻力系数
-- `TURN_SPEED`：转向速度（弧度/秒）
+### Linux
+```bash
+pip install pygame pymunk
+python main.py
+```
 
-## 技术栈
-- Python 3.12
-- Pygame 2.6.1（图形渲染）
-- Pymunk 7.2.0（物理引擎）
+## Auto-Build
 
-## 已知问题
-- 当前赛道是椭圆形状，比较简单，后续可扩展更多赛道
-- 无头环境下无声音输出
-- 可能需要调整物理参数以获得更佳手感
+Windows `.exe` artifacts are automatically built via GitHub Actions on every push to `main`.
+Downloads are available on the [Actions](https://github.com/striferxu/pixel-racer/actions) tab.
+
+## Project Structure
+
+```
+pixel-racer/
+├── main.py           # Game entry point
+├── game.py           # Game state management
+├── physics.py        # Pymunk physics (car, grip, drift)
+├── renderer.py       # Pixel art car rendering
+├── track.py          # Elliptical track
+├── camera.py         # Smooth camera follow
+├── particles.py      # Drift smoke particles
+├── input_handler.py  # Keyboard input
+├── config.py         # Game parameters
+├── requirements.txt  # Dependencies
+└── .github/workflows/build.yml  # CI/CD
+```
+
+## License
+
+MIT
